@@ -47,7 +47,6 @@ const NavBar = () => {
     setMobileOpen(open);
   };
 
-
   const toggleMobileServices = () => {
     setMobileServicesOpen(!mobileServicesOpen);
   };
@@ -64,9 +63,9 @@ const NavBar = () => {
         : "60px";
 
   const backgroundColor = isLightMode
-    ? "#000000"
+    ? "linear-gradient(90deg, #2545be 0%, #0d1747 40%, #0f172a 80%, #020617 100%)"
     : scroll
-      ? "black"
+      ? "linear-gradient(90deg, #2545be 0%, #1e3a8a 40%, #0f172a 80%, #020617 100%)"
       : "transparent";
 
   const serviceItems = [
@@ -86,7 +85,9 @@ const NavBar = () => {
         sx={{
           transition: "0.3s ease-in-out",
           // background: backgroundColor,
-          boxShadow: scroll ? "0px 4px 10px rgba(0, 0, 0, 0.2)" : "none",
+            //  background:
+            //   "linear-gradient(180deg, rgba(10,11,26,0.8) 0%, rgba(10,11,26,0.4) 100%)",
+          backdropFilter: scroll ? "blur(10px)" : "none",
           borderBottom: isLightMode
             ? "none"
             : "1px solid rgba(255, 255, 255, 0.1)",
@@ -308,7 +309,9 @@ const NavBar = () => {
                 transition: "all 0.3s ease",
                 "&:hover": {
                   color: "#2870f9",
-                  backgroundColor: isLightMode ? "rgba(40, 112, 249, 0.1)" : "rgba(255, 255, 255, 0.05)",
+                  backgroundColor: isLightMode
+                    ? "rgba(40, 112, 249, 0.1)"
+                    : "rgba(255, 255, 255, 0.05)",
                   transform: "translateX(5px)",
                   boxShadow: "0 2px 10px rgba(40, 112, 249, 0.2)",
                 },
@@ -319,7 +322,11 @@ const NavBar = () => {
               onClick={toggleMobileServices}
             >
               Services
-              {mobileServicesOpen ? <ExpandLessIcon sx={{ ml: 1 }} /> : <ExpandMoreIcon sx={{ ml: 1 }} />}
+              {mobileServicesOpen ? (
+                <ExpandLessIcon sx={{ ml: 1 }} />
+              ) : (
+                <ExpandMoreIcon sx={{ ml: 1 }} />
+              )}
             </Button>
             <Collapse in={mobileServicesOpen}>
               <List sx={{ pl: 2 }}>
@@ -339,7 +346,9 @@ const NavBar = () => {
                         transition: "all 0.3s ease",
                         "&:hover": {
                           color: "#2870f9",
-                          backgroundColor: isLightMode ? "rgba(40, 112, 249, 0.1)" : "rgba(255, 255, 255, 0.05)",
+                          backgroundColor: isLightMode
+                            ? "rgba(40, 112, 249, 0.1)"
+                            : "rgba(255, 255, 255, 0.05)",
                           transform: "translateX(5px)",
                         },
                       }}

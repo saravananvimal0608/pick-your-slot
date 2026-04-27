@@ -39,6 +39,7 @@ import schema from "@/lib/schema";
 import Testimonials from "@/component/Home/Testimonial";
 import DifferentBookings from "@/component/Home/DifferentBookings";
 import Antigravity from "@/component/Home/AntiGravity";
+import LightRays from "@/component/Home/LightRays";
 
 console.log("heach", head1.src);
 
@@ -169,13 +170,22 @@ const Page = () => {
 
   return (
     <div style={{ position: "relative", width: "100%", minHeight: "100vh" }}>
+      {/* Light Rays Background */}
       <div
         style={{
           position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
+          inset: 0,
+          zIndex: 1,
+        }}
+      >
+        <LightRays />
+      </div>
+
+      {/* Antigravity Particles */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
           zIndex: 2,
         }}
       >
@@ -197,7 +207,7 @@ const Page = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            zIndex: 1,
+            zIndex: 3,
           },
         }}
       >
